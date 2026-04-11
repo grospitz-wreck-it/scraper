@@ -37,7 +37,7 @@ def fetch_teams(comp_id):
 
 
 def main():
-    comps = pd.read_csv("competitions.csv")
+   comps = pd.read_csv("competitions.csv")
 
     all_teams = []
 
