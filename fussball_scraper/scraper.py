@@ -38,8 +38,10 @@ def scrape():
     data = []
 
     with sync_playwright() as p:
-browser = p.chromium.launch(headless=True)
-page = browser.new_page()
+browser = p.chromium.launch(
+    headless=True,
+    args=["--no-sandbox", "--disable-dev-shm-usage"]
+)
 
         for league in LEAGUES:
             print(f"\n👉 Lade Liga: {league}")
