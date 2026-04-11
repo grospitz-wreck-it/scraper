@@ -1,6 +1,8 @@
 import requests
 import pandas as pd
 import time
+import os
+print("FILES:", os.listdir())
 
 BASE_URL = "https://www.fupa.net/api/competition"
 
