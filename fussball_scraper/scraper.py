@@ -19,13 +19,9 @@ def normalize(name):
 
 def extract_teams(page):
     teams = []
-
-    # 👉 NUR echte Vereinslinks
     elements = page.locator("a[href*='verein']")
 
-    count = elements.count()
-
-    for i in range(count):
+    for i in range(elements.count()):
         text = elements.nth(i).inner_text().strip()
 
         if text and 3 < len(text) < 60:
@@ -38,14 +34,19 @@ def scrape():
     data = []
 
     with sync_playwright() as p:
-browser = p.chromium.launch(
-    headless="new",
-    args=[
-        "--no-sandbox",
-        "--disable-dev-shm-usage",
-        "--disable-gpu",
-    ]
-)
+        browser = p.chromium.launch(
+            headless="new",
+            args=[
+                "--no-sandbox",
+                "--disable-dev-shm-usage",
+                "--disable-gpu",
+            ]
+        )
+
+        # 👉 DAS HAT GEFEHLT
+        context = browser.new_context()
+        page = context.new_page()
+
         for league in LEAGUES:
             print(f"\n👉 Lade Liga: {league}")
 
@@ -55,7 +56,7 @@ browser = p.chromium.launch(
             # 👉 warten bis Tabs da sind
             page.wait_for_selector("text=Tabelle")
 
-            # 👉 auf Mannschaften klicken (robust)
+            # 👉 auf Mannschaften klicken
             if page.locator("text=Mannschaften").count() > 0:
                 page.click("text=Mannschaften")
             elif page.locator("text=Teams").count() > 0:
