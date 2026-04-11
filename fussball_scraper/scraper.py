@@ -39,14 +39,10 @@ def scrape():
 
     with sync_playwright() as p:
 browser = p.chromium.launch(
-    headless=True,
+    headless="new",   # 👈 DAS ist der entscheidende Unterschied
     args=[
         "--no-sandbox",
         "--disable-dev-shm-usage",
-        "--disable-gpu",
-        "--disable-setuid-sandbox",
-        "--no-zygote",
-        "--single-process"
     ]
 )
 
