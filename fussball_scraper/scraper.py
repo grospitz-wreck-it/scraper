@@ -35,13 +35,17 @@ def scrape():
 
     with sync_playwright() as p:
         browser = p.chromium.launch(
-            headless="new",
-            args=[
-                "--no-sandbox",
-                "--disable-dev-shm-usage",
-                "--disable-gpu",
-            ]
-        )
+    headless=True,
+    executable_path="/home/codespace/.cache/ms-playwright/chromium-1208/chrome-linux/chrome",
+    args=[
+        "--no-sandbox",
+        "--disable-dev-shm-usage",
+        "--disable-gpu",
+        "--disable-software-rasterizer",
+        "--disable-setuid-sandbox",
+        "--disable-features=UseOzonePlatform",
+    ]
+)
 
         # 👉 DAS HAT GEFEHLT
         context = browser.new_context()
