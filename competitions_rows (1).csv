@@ -1,0 +1,184 @@
+id,name,region_id,division,level
+0059fcef-0755-4e19-b59b-128f492aa763,Berlin Landesliga,6a122f1a-46c8-4f23-9696-f245d9e7cc75,,5
+01d06c83-5ebd-461c-a0b5-7ea9a481d94b,Lübbecke Kreisliga A 1,11fcdd01-49d0-446b-a93a-d4cd5ec3ad52,,7
+0292e60f-104a-44cb-9ab1-fe400a511ea1,Brandenburg Kreisliga A 3,5971e3e1-5533-4bc4-9c8e-c912eb45511e,,7
+052d1c48-7fc3-4323-b10f-f5b4624aba65,Nordrhein-Westfalen Landesliga,483fe498-453b-49bb-a10a-400873fb75d9,,5
+053e3ea6-fbef-43d5-a36d-0f9be842d32f,Bayern Kreisliga A 4,21dd6317-9607-4589-b1a3-a50027af6abb,,7
+0755a567-3dc0-4997-9369-f05020deac4f,Mecklenburg-Vorpommern Kreisliga A 2,aa364d42-f72a-4571-810d-802e61d72604,,7
+0885f6b0-02e3-47c9-a517-1fd0a29c0ff5,Brandenburg Kreisliga A 4,5971e3e1-5533-4bc4-9c8e-c912eb45511e,,7
+0b8e0462-9b96-40fd-9c75-ee9e2bf898aa,Bielefeld Kreisliga A 2,451030ea-d598-433c-94a5-266c81c234a3,,7
+0c3bc42a-32d4-49b6-a541-f012876c980d,Paderborn Kreisliga A 3,9cad62a9-1de0-4e4e-8164-05c60caac593,,7
+0ce324fd-0a31-49f5-971d-0f7d9d40b2be,Paderborn (Region) Landesliga,07c4a087-9fa0-43ce-95dc-4d0ccc263d0c,,5
+0eefc0cf-a6c6-4b04-a1f9-d30b37fa48a6,Paderborn (Region) Kreisliga A 4,07c4a087-9fa0-43ce-95dc-4d0ccc263d0c,,7
+0f002572-dbab-4db2-b94b-e2ae3210dafd,Regionalliga Nord,,,4
+11993565-9386-42a6-ba18-33b7f3ac04d6,Sachsen-Anhalt Landesliga,dd215034-9f5d-4342-8b11-7adf2db4deec,,5
+135f2c6b-67ad-42ea-a9ef-57f6dd482193,Hamburg Kreisliga A 2,49e171e6-b242-430c-9d08-4e5d46eaddd6,,7
+142b15b0-b5ae-4f4a-b11e-2d8176e3569d,Steinfurt Landesliga,2f0591d6-080f-4f1e-9277-8c5d2eebf588,,5
+17842716-c147-4909-a236-bd6e01b982fb,Herford Kreisliga A 4,d1694238-6b5a-4a28-814c-2d65000b6a04,,7
+1a610e01-5d94-4733-9ab2-ac178fd2729a,Minden-Lübbecke (Region) Landesliga,0997be16-eab0-4f9a-814e-98f45f2e39b4,,5
+1e914491-08c4-4fb5-975a-cdb0335b3899,Brandenburg Kreisliga A 2,5971e3e1-5533-4bc4-9c8e-c912eb45511e,,7
+1f9f8838-921d-4345-9efb-d0f6d25e6104,Minden-Lübbecke (Region) Kreisliga A 3,0997be16-eab0-4f9a-814e-98f45f2e39b4,,7
+26ac969a-78b2-4944-99bf-dc42ae19ad03,Mecklenburg-Vorpommern Landesliga,aa364d42-f72a-4571-810d-802e61d72604,,5
+28dd469c-d8b0-4131-b0d3-b746d1d702b6,Herford Kreisliga A 3,d1694238-6b5a-4a28-814c-2d65000b6a04,,7
+29b87866-9870-47cc-ba5e-0017de7c2887,Bayern Kreisliga A 2,21dd6317-9607-4589-b1a3-a50027af6abb,,7
+2ac46a0e-376a-44e4-97b8-82f74fc8ee2f,Herford (Region) Kreisliga D,56b92b3d-9972-43a6-b0bb-74040b2f7569,,7
+2bd6499b-bdbd-4abf-9343-90ddd6155a79,Hamburg Landesliga,49e171e6-b242-430c-9d08-4e5d46eaddd6,,5
+2c53aefa-6fe3-42dd-be97-73adc278f3c4,Paderborn (Region) Kreisliga A 3,07c4a087-9fa0-43ce-95dc-4d0ccc263d0c,,7
+2cc5ee31-b65a-4e78-9b38-3c5be6a347ca,Liga 3,,,3
+2cdcd53f-ee35-4f8b-9292-2100403edccd,Nordrhein-Westfalen Kreisliga A 4,483fe498-453b-49bb-a10a-400873fb75d9,,7
+2e83ddeb-b652-461d-a7c0-a8247898262d,Steinfurt (Region) Kreisliga A 4,5249e1a3-ab7b-48f0-aa3e-3a1897759c96,,7
+32c0a4d4-6dd5-4ca5-9a12-4c37a591dfe9,Sachsen Kreisliga A 3,3ca4eb66-46fa-4eac-b5f4-ce67a2595196,,7
+32f60d4f-f201-461d-a272-56731f74e917,Kreisliga A Lübbecke,11fcdd01-49d0-446b-a93a-d4cd5ec3ad52,,7
+33e367a7-0527-4b7c-9561-c8bc029ccf58,Sachsen-Anhalt Bezirksliga,dd215034-9f5d-4342-8b11-7adf2db4deec,,6
+38bab647-6c54-4660-b766-080e229fd83a,Bielefeld (Region) Kreisliga A 4,0a5dbdf7-f983-48df-a885-e81467a3e01b,,7
+38ca56f3-1c2d-4490-828a-0b6fea6d9282,Rheinland-Pfalz Landesliga,d54d2a67-6d94-41a2-91ae-a0864ca9bf68,,5
+39c12744-5721-42d0-ac63-16e0b6891964,Steinfurt (Region) Landesliga,5249e1a3-ab7b-48f0-aa3e-3a1897759c96,,5
+3aa6b881-73e4-428e-8c69-b5a7f8fcf5bf,Paderborn (Region) Kreisliga A 1,07c4a087-9fa0-43ce-95dc-4d0ccc263d0c,,7
+3ba29430-ea02-4be8-af56-981b3a7eda08,Bielefeld (Region) Landesliga,0a5dbdf7-f983-48df-a885-e81467a3e01b,,5
+3c147d79-71d9-4a85-934b-f65ca701d373,Herford (Region) Kreisliga C,56b92b3d-9972-43a6-b0bb-74040b2f7569,,7
+3c8d2700-85e1-4104-a9ee-6b77b9b573db,Herford (Region) Kreisliga A 3,56b92b3d-9972-43a6-b0bb-74040b2f7569,,7
+3ceb964e-67ff-4244-9f4b-eae8ef5ca96d,Herford (Region) Bezirksliga,56b92b3d-9972-43a6-b0bb-74040b2f7569,,6
+3ee706c4-bdc6-461c-830c-26f82a0fa677,Hessen Kreisliga A 3,b0131ced-fa83-4fb1-afca-f220318b4b8b,,7
+3f5e8591-9882-419c-867a-fdce918680b2,Nordrhein-Westfalen Bezirksliga,483fe498-453b-49bb-a10a-400873fb75d9,,6
+406763dc-d676-4ca3-8d68-fb9660b6a766,Regionalliga West,,,4
+412935d0-1b7a-4a0f-b086-de80af1158f5,Herford (Region) Kreisliga B,56b92b3d-9972-43a6-b0bb-74040b2f7569,,7
+41837637-d06b-467f-8111-7969972496f4,Hessen Kreisliga A 4,b0131ced-fa83-4fb1-afca-f220318b4b8b,,7
+435fce70-11d7-41f6-9722-27db02f37f0e,Sachsen-Anhalt Kreisliga A 3,dd215034-9f5d-4342-8b11-7adf2db4deec,,7
+44a8a390-0edf-4a1c-ab8e-6655306187c9,Schleswig-Holstein Kreisliga A 1,3cbc446b-7d61-452b-b63b-fa6f65385c96,,7
+46af544e-eb0c-4175-9dbb-00d5c6ac92b7,Paderborn Kreisliga A 2,9cad62a9-1de0-4e4e-8164-05c60caac593,,7
+47c265b0-33b1-48a9-b6d7-db45dc54a718,Niedersachsen Kreisliga A 3,734161f0-745a-4af6-bb83-1e82e0d3fd23,,7
+4851ba75-4d4c-4b5b-805e-90c9b1d707dc,Bielefeld (Region) Kreisliga A,0a5dbdf7-f983-48df-a885-e81467a3e01b,,7
+48e2412a-22be-47ba-a1bc-62b3ce47ef04,Bielefeld (Region) Kreisliga A 1,0a5dbdf7-f983-48df-a885-e81467a3e01b,,7
+498e13c8-5f48-46e3-8000-c390d69ad46e,Kreisliga A Bielefeld,0a5dbdf7-f983-48df-a885-e81467a3e01b,,7
+4a33172f-4fc7-4eaf-9523-181bb92d930b,Regionalliga Mitte,,,4
+4cc5ed3b-d23c-49ec-8c0b-3f7ad69a5baa,Herford (Region) Kreisliga A 4,56b92b3d-9972-43a6-b0bb-74040b2f7569,,7
+4f281eba-7778-4910-adbb-f9300ba8213c,Schleswig-Holstein Kreisliga A 3,3cbc446b-7d61-452b-b63b-fa6f65385c96,,7
+50e6eb44-e6f7-44ae-a3d0-0570655c854e,Liga 1,,,1
+518640cb-9a4b-4fa8-b28a-61603f685ed1,Bremen Bezirksliga,ec05ac2e-0df2-4220-9430-19650177dad5,,6
+52a1de40-ea16-4f11-90a0-7e06744c626d,Rheinland-Pfalz Kreisliga A 1,d54d2a67-6d94-41a2-91ae-a0864ca9bf68,,7
+55ab1f5e-e27a-4694-a612-59919f2bfcea,Kreisliga A Lübbecke,11fcdd01-49d0-446b-a93a-d4cd5ec3ad52,,7
+55afb1cd-6bd3-4430-962f-13868cf8e879,Hessen Landesliga,b0131ced-fa83-4fb1-afca-f220318b4b8b,,5
+56224fbd-a703-427d-b93e-7737f6e02580,Hamburg Kreisliga A 4,49e171e6-b242-430c-9d08-4e5d46eaddd6,,7
+566b4c90-bb1d-45fe-a7ed-a3e154a801de,Bayern Kreisliga A 1,21dd6317-9607-4589-b1a3-a50027af6abb,,7
+579e2305-cdaa-4ed5-b5b9-2a31183abbf8,Rheinland-Pfalz Kreisliga A 3,d54d2a67-6d94-41a2-91ae-a0864ca9bf68,,7
+580ea26b-2c0b-423d-9c8c-6e0c918993e6,Hessen Kreisliga A 1,b0131ced-fa83-4fb1-afca-f220318b4b8b,,7
+5860919e-d09a-443e-a8ca-d38570f69e8e,Schleswig-Holstein Kreisliga A 4,3cbc446b-7d61-452b-b63b-fa6f65385c96,,7
+58df5f49-630f-4d8d-94a5-5cf75a263a1f,Bremen Kreisliga A 2,ec05ac2e-0df2-4220-9430-19650177dad5,,7
+591376bd-0e6a-416d-aa5d-ebbb02617ef8,Kreisliga A Steinfurt,2f0591d6-080f-4f1e-9277-8c5d2eebf588,,7
+59aa4166-162b-41a5-ab77-93321493a19a,Berlin Bezirksliga,6a122f1a-46c8-4f23-9696-f245d9e7cc75,,6
+5ccc1a45-eb24-462b-add9-0fec4ba3aec0,Kreisliga A Herford,d1694238-6b5a-4a28-814c-2d65000b6a04,,7
+5d00f945-807f-4b6c-a965-ae5af70c254d,Mecklenburg-Vorpommern Kreisliga A 4,aa364d42-f72a-4571-810d-802e61d72604,,7
+5ede0ff9-5079-4cfc-8311-3429b1abfd55,Niedersachsen Landesliga,734161f0-745a-4af6-bb83-1e82e0d3fd23,,5
+6282fc77-8667-41bd-b58c-683653cc4007,Sachsen Kreisliga A 4,3ca4eb66-46fa-4eac-b5f4-ce67a2595196,,7
+63970d4b-78b2-46d9-9a6c-5252c021d1bc,Berlin Kreisliga A 1,6a122f1a-46c8-4f23-9696-f245d9e7cc75,,7
+65593161-bd6e-4006-a095-76059f68c1ec,Kreisliga A Steinfurt,5249e1a3-ab7b-48f0-aa3e-3a1897759c96,,7
+668b9e03-0401-4f90-88ef-8d559a0a4155,Kreisliga A Bielefeld,451030ea-d598-433c-94a5-266c81c234a3,,7
+6744d466-6470-4a0d-8fc8-25306055fc4b,Nordrhein-Westfalen Kreisliga A 2,483fe498-453b-49bb-a10a-400873fb75d9,,7
+690a4d34-1b25-4710-a662-4b37e8008aa3,Nordrhein-Westfalen Kreisliga A 1,483fe498-453b-49bb-a10a-400873fb75d9,,7
+696c51c3-8767-4075-8b5b-3726b4109fef,Mecklenburg-Vorpommern Bezirksliga,aa364d42-f72a-4571-810d-802e61d72604,,6
+69ef3f0d-f3d6-4f46-8e6d-a5d0196ac542,Steinfurt Kreisliga A 3,2f0591d6-080f-4f1e-9277-8c5d2eebf588,,7
+6a816b2c-7c28-4142-8e74-9d4c5c587ac3,Bielefeld (Region) Kreisliga A 3,0a5dbdf7-f983-48df-a885-e81467a3e01b,,7
+6d45c6a1-9b45-43c5-b6fe-9c3e49e62482,Steinfurt Kreisliga A 2,2f0591d6-080f-4f1e-9277-8c5d2eebf588,,7
+6e238e04-3129-4915-8674-197858f7bea2,Herford (Region) Kreisliga A 1,56b92b3d-9972-43a6-b0bb-74040b2f7569,,7
+6e8ff934-3734-4761-9e62-7db70068f409,Steinfurt (Region) Kreisliga A,5249e1a3-ab7b-48f0-aa3e-3a1897759c96,,7
+73965eab-178d-4971-976a-823a7272c923,Bremen Landesliga,ec05ac2e-0df2-4220-9430-19650177dad5,,5
+749d2e91-ebb8-4231-88d8-f1d86cf9f70f,Lübbecke Kreisliga A 2,11fcdd01-49d0-446b-a93a-d4cd5ec3ad52,,7
+74a6c43b-34a3-4f63-ac9e-efe7845ec55e,Hamburg Kreisliga A 1,49e171e6-b242-430c-9d08-4e5d46eaddd6,,7
+75caa197-ec8d-4411-be36-9498212083bf,Saarland Kreisliga A 4,c61b7234-d523-46a3-93b2-7e88194e42ba,,7
+76d793d8-5482-4f4c-afb0-597de0ae98c9,Schleswig-Holstein Kreisliga A 2,3cbc446b-7d61-452b-b63b-fa6f65385c96,,7
+78f255ec-d666-4333-8553-faf3aeb4eb68,Sachsen Kreisliga A 2,3ca4eb66-46fa-4eac-b5f4-ce67a2595196,,7
+79535f44-7053-4252-a087-b6cd1d4a81fa,Niedersachsen Kreisliga A 2,734161f0-745a-4af6-bb83-1e82e0d3fd23,,7
+79a3744a-936d-48c1-9130-d73cb8e64bb7,Thüringen Landesliga,9fca3ed9-c871-42a0-9f12-c991c0c63433,,5
+7aaed80b-4e74-40d1-b596-9703c876bbc6,Sachsen Bezirksliga,3ca4eb66-46fa-4eac-b5f4-ce67a2595196,,6
+7b06c495-bd96-46f4-b2c1-9685439d9b6f,Paderborn Kreisliga A 1,9cad62a9-1de0-4e4e-8164-05c60caac593,,7
+7b825ce9-ff81-4081-a7c4-d23a04c532f5,Thüringen Bezirksliga,9fca3ed9-c871-42a0-9f12-c991c0c63433,,6
+7f11dd9a-1edb-4019-a30c-e44c694f3669,Saarland Kreisliga A 3,c61b7234-d523-46a3-93b2-7e88194e42ba,,7
+7f31af86-610f-45c7-8599-8f641dd92a9f,Berlin Kreisliga A 4,6a122f1a-46c8-4f23-9696-f245d9e7cc75,,7
+8027441e-e327-40c8-96ce-d468f37b042e,Minden-Lübbecke (Region) Kreisliga A,0997be16-eab0-4f9a-814e-98f45f2e39b4,,7
+818bbc9c-e4f1-4b2a-aee3-3cb26e5ee452,Kreisliga A Herford,56b92b3d-9972-43a6-b0bb-74040b2f7569,,7
+82e51260-bea6-4b1e-beb9-f81bb7c00e48,Herford Landesliga,d1694238-6b5a-4a28-814c-2d65000b6a04,,5
+832ea0ef-c9ab-4ef0-a031-d036b2ec27c9,Regionalliga Ost,,,4
+83360822-96cb-4e75-8a69-01cc437dd2d7,Saarland Landesliga,c61b7234-d523-46a3-93b2-7e88194e42ba,,5
+834093a7-7135-463e-9079-398777d3d544,Bielefeld Kreisliga A 1,451030ea-d598-433c-94a5-266c81c234a3,,7
+83f03af7-e0b5-45a0-84ee-3a040b69496c,Paderborn (Region) Bezirksliga,07c4a087-9fa0-43ce-95dc-4d0ccc263d0c,,6
+83feb773-1ef6-4061-99b7-33202842966a,Steinfurt (Region) Bezirksliga,5249e1a3-ab7b-48f0-aa3e-3a1897759c96,,6
+89ed600a-d176-4bc8-a6fc-b41f260ad79a,Herford (Region) Kreisliga A 2,56b92b3d-9972-43a6-b0bb-74040b2f7569,,7
+8ba9f392-ddf7-4172-b115-053b994e3dad,Steinfurt (Region) Kreisliga A 1,5249e1a3-ab7b-48f0-aa3e-3a1897759c96,,7
+8c6175b3-18dd-4b2f-a258-9e19ee703aab,Niedersachsen Bezirksliga,734161f0-745a-4af6-bb83-1e82e0d3fd23,,6
+8c79f0bd-25e5-4701-9b0c-edd0ca481400,Minden-Lübbecke (Region) Kreisliga A 2,0997be16-eab0-4f9a-814e-98f45f2e39b4,,7
+8cc88eba-08ee-48aa-81b6-033a1b340de9,Paderborn Bezirksliga,9cad62a9-1de0-4e4e-8164-05c60caac593,,6
+8d5f8c08-6755-4c30-a898-f23ed743e02b,Baden-Württemberg Kreisliga A 4,11d9b2a9-ea06-4964-a119-ef6952a6403b,,7
+8de68393-28c8-4f64-aeaa-8ee501a25b0f,Lübbecke Kreisliga A 4,11fcdd01-49d0-446b-a93a-d4cd5ec3ad52,,7
+8e6d9731-1b4f-4bae-925a-d64038ba9be9,Thüringen Kreisliga A 4,9fca3ed9-c871-42a0-9f12-c991c0c63433,,7
+8f88f2e8-9dd6-4e1c-b79b-c3e5c58db6f2,Sachsen-Anhalt Kreisliga A 2,dd215034-9f5d-4342-8b11-7adf2db4deec,,7
+926712d9-7a2e-49df-bd8a-54653776ccf4,Brandenburg Kreisliga A 1,5971e3e1-5533-4bc4-9c8e-c912eb45511e,,7
+953ec461-d2be-4c0b-9044-20ad2cc6b64c,Hamburg Bezirksliga,49e171e6-b242-430c-9d08-4e5d46eaddd6,,6
+9582192d-e91e-4da0-b929-56783f838e69,Herford Bezirksliga,d1694238-6b5a-4a28-814c-2d65000b6a04,,6
+96f1b975-f978-44c6-a652-d11f6d3f5519,Lübbecke Bezirksliga,11fcdd01-49d0-446b-a93a-d4cd5ec3ad52,,6
+975fa6f7-3304-449a-80ca-f4759fe4cb58,Baden-Württemberg Landesliga,11d9b2a9-ea06-4964-a119-ef6952a6403b,,5
+99c23bec-7ddd-40d4-bff6-fa0cca720914,Saarland Bezirksliga,c61b7234-d523-46a3-93b2-7e88194e42ba,,6
+9a8159ed-4c07-49cf-8318-2d8eb6dc22e2,Paderborn Landesliga,9cad62a9-1de0-4e4e-8164-05c60caac593,,5
+9bbc5520-5c9d-467c-bbc5-b8b0788626b9,Brandenburg Bezirksliga,5971e3e1-5533-4bc4-9c8e-c912eb45511e,,6
+9ff66be6-c806-44ff-bf4a-09c919cb57d0,Minden-Lübbecke (Region) Bezirksliga,0997be16-eab0-4f9a-814e-98f45f2e39b4,,6
+a0a0d74e-81c7-458b-a212-a01179328a19,Rheinland-Pfalz Kreisliga A 2,d54d2a67-6d94-41a2-91ae-a0864ca9bf68,,7
+a2483aaf-4dbd-4f56-ae68-9e23b2173f17,Bielefeld Landesliga,451030ea-d598-433c-94a5-266c81c234a3,,5
+a446f38f-e06f-49d4-b8fb-2926f4537ab1,Minden-Lübbecke (Region) Kreisliga A 4,0997be16-eab0-4f9a-814e-98f45f2e39b4,,7
+a4b9f48d-d5b8-45d0-847d-f81f9f1be0d6,Mecklenburg-Vorpommern Kreisliga A 3,aa364d42-f72a-4571-810d-802e61d72604,,7
+a9849786-97c9-49a9-8217-7dd9890dc25e,Kreisliga A Paderborn,9cad62a9-1de0-4e4e-8164-05c60caac593,,7
+ab6d4f61-c56d-4bae-ae39-a974325e6498,Sachsen-Anhalt Kreisliga A 4,dd215034-9f5d-4342-8b11-7adf2db4deec,,7
+add08fbb-ce1f-4846-a10b-9d37ceef3ed1,Hessen Bezirksliga,b0131ced-fa83-4fb1-afca-f220318b4b8b,,6
+adf67681-e316-4123-8b8c-92e6c568700c,Berlin Kreisliga A 3,6a122f1a-46c8-4f23-9696-f245d9e7cc75,,7
+aed75c80-f298-4178-b31a-fcc915447cb0,Sachsen-Anhalt Kreisliga A 1,dd215034-9f5d-4342-8b11-7adf2db4deec,,7
+afb55f4b-1b3f-482c-9ef5-5914657a95a4,Sachsen Kreisliga A 1,3ca4eb66-46fa-4eac-b5f4-ce67a2595196,,7
+b00a1c00-9647-4654-bef9-67319f476f17,Saarland Kreisliga A 2,c61b7234-d523-46a3-93b2-7e88194e42ba,,7
+b20580d2-0479-45af-80b3-2bf0df147832,Bremen Kreisliga A 3,ec05ac2e-0df2-4220-9430-19650177dad5,,7
+b2a5884a-e864-4621-b1a7-aaabdd852c57,Lübbecke Kreisliga A 3,11fcdd01-49d0-446b-a93a-d4cd5ec3ad52,,7
+b4915a4e-fe03-407b-84e8-372568b989bb,Thüringen Kreisliga A 3,9fca3ed9-c871-42a0-9f12-c991c0c63433,,7
+b51ea631-d99a-43b4-a5eb-b741106168e5,Paderborn (Region) Kreisliga A 2,07c4a087-9fa0-43ce-95dc-4d0ccc263d0c,,7
+b6d9b064-3bdb-40a3-91ec-c384454687d3,Berlin Kreisliga A 2,6a122f1a-46c8-4f23-9696-f245d9e7cc75,,7
+b72a21e7-2d46-442d-b960-4f6767844343,Herford Kreisliga A 2,d1694238-6b5a-4a28-814c-2d65000b6a04,,7
+b877c3c7-547c-4b97-852c-751d43fa86c1,Baden-Württemberg Kreisliga A 2,11d9b2a9-ea06-4964-a119-ef6952a6403b,,7
+bf69cfee-c85a-41bd-8f7e-2830936a0b87,Bremen Kreisliga A 1,ec05ac2e-0df2-4220-9430-19650177dad5,,7
+c0dbce0f-7550-4428-9f7f-02effd32a85b,Steinfurt (Region) Kreisliga A 2,5249e1a3-ab7b-48f0-aa3e-3a1897759c96,,7
+c32f50df-1155-412f-b643-8721b93486ec,Bayern Bezirksliga,21dd6317-9607-4589-b1a3-a50027af6abb,,6
+c37de93c-d347-4d96-9aa0-f8d1786655c6,Baden-Württemberg Kreisliga A 1,11d9b2a9-ea06-4964-a119-ef6952a6403b,,7
+c4dbe7c8-8378-4ec5-ba71-043b9631dc35,Bayern Kreisliga A 3,21dd6317-9607-4589-b1a3-a50027af6abb,,7
+c658dcc7-980a-4187-9b29-64b83ee8cc9c,Minden-Lübbecke (Region) Kreisliga A 1,0997be16-eab0-4f9a-814e-98f45f2e39b4,,7
+c753f970-760a-4b95-aed4-eec8a2cffb5f,Baden-Württemberg Bezirksliga,11d9b2a9-ea06-4964-a119-ef6952a6403b,,6
+c8967826-7057-40d4-aecf-18cdf644a931,Bielefeld Bezirksliga,451030ea-d598-433c-94a5-266c81c234a3,,6
+c8e62d6e-b02a-45ed-80d8-9068eade34e5,Herford (Region) Landesliga,56b92b3d-9972-43a6-b0bb-74040b2f7569,,5
+c91e669f-57c6-4e11-86ce-78988942af33,Saarland Kreisliga A 1,c61b7234-d523-46a3-93b2-7e88194e42ba,,7
+ccccc331-8169-428c-814c-5495d47032cb,Bayern Landesliga,21dd6317-9607-4589-b1a3-a50027af6abb,,5
+cdcbc0eb-e987-4b58-90f2-ab6e5050cdf3,Nordrhein-Westfalen Kreisliga A 3,483fe498-453b-49bb-a10a-400873fb75d9,,7
+ce2eb4a7-5125-4bb7-aeb8-0b8382c6ddf6,Herford (Region) Kreisliga A,56b92b3d-9972-43a6-b0bb-74040b2f7569,,7
+ce450e15-0196-4de9-908f-4d3a20050382,Paderborn Kreisliga A 4,9cad62a9-1de0-4e4e-8164-05c60caac593,,7
+ceb2fa2e-da07-4464-baaa-29a54f01b789,Niedersachsen Kreisliga A 4,734161f0-745a-4af6-bb83-1e82e0d3fd23,,7
+d0a61249-f135-4200-bc33-033e88c8c14a,Thüringen Kreisliga A 2,9fca3ed9-c871-42a0-9f12-c991c0c63433,,7
+d303a0dc-b299-4384-a153-6bce0bff30f0,Niedersachsen Kreisliga A 1,734161f0-745a-4af6-bb83-1e82e0d3fd23,,7
+d4760dd8-c854-4faa-82bb-5eca8a965143,Steinfurt Kreisliga A 1,2f0591d6-080f-4f1e-9277-8c5d2eebf588,,7
+d5b45540-0ae6-4e6e-bc4e-c3d0bde99515,Lübbecke Landesliga,11fcdd01-49d0-446b-a93a-d4cd5ec3ad52,,5
+d64d6abc-2f64-4a24-a6b0-2a1cbffcb7a9,Paderborn (Region) Kreisliga A,07c4a087-9fa0-43ce-95dc-4d0ccc263d0c,,7
+d7e1d7c4-1c8c-431e-adc0-5583a67c191f,Steinfurt Kreisliga A 4,2f0591d6-080f-4f1e-9277-8c5d2eebf588,,7
+d9cb8f1b-0c51-474e-a56e-5699981eb918,Mecklenburg-Vorpommern Kreisliga A 1,aa364d42-f72a-4571-810d-802e61d72604,,7
+dbeb3617-578c-42b0-92de-7c176b942e96,Steinfurt (Region) Kreisliga A 3,5249e1a3-ab7b-48f0-aa3e-3a1897759c96,,7
+de412b57-d9d8-4e2d-abc8-6ae1613e1a22,Schleswig-Holstein Landesliga,3cbc446b-7d61-452b-b63b-fa6f65385c96,,5
+decb1879-aa49-4478-9699-637a23569029,Rheinland-Pfalz Bezirksliga,d54d2a67-6d94-41a2-91ae-a0864ca9bf68,,6
+e37695f4-56d8-4c4d-9ff2-29ca7c455032,Steinfurt Bezirksliga,2f0591d6-080f-4f1e-9277-8c5d2eebf588,,6
+e4fdc8ec-989b-47b7-bf02-c75bc3d8cc58,Bielefeld Kreisliga A 3,451030ea-d598-433c-94a5-266c81c234a3,,7
+e5f44cef-c57c-4d32-a96d-0e2c590886ca,Sachsen Landesliga,3ca4eb66-46fa-4eac-b5f4-ce67a2595196,,5
+e8c53678-747f-420a-a18a-33d2d8d83744,Regionalliga Süd,,,4
+eac9329b-f220-4f9e-a36d-1d0a035b0df5,Baden-Württemberg Kreisliga A 3,11d9b2a9-ea06-4964-a119-ef6952a6403b,,7
+ebdb95c3-7850-4f27-a933-1ef8917d5fa5,Kreisliga,,A,1
+ef10ff8a-655b-4407-b064-bd982bcd4063,Bielefeld Kreisliga A 4,451030ea-d598-433c-94a5-266c81c234a3,,7
+ef84dbd9-980c-4ce6-9a09-c68bf4bd4461,Bielefeld (Region) Bezirksliga,0a5dbdf7-f983-48df-a885-e81467a3e01b,,6
+f0855257-c697-430a-899a-2983edc71bf3,Brandenburg Landesliga,5971e3e1-5533-4bc4-9c8e-c912eb45511e,,5
+f2fb8f85-d03b-4bc8-9215-4b8cf0c7921d,Kreisliga A Paderborn,07c4a087-9fa0-43ce-95dc-4d0ccc263d0c,,7
+f7d1b59b-b8f6-471f-b9fd-a30a84db8fb2,Schleswig-Holstein Bezirksliga,3cbc446b-7d61-452b-b63b-fa6f65385c96,,6
+f87818e0-80a6-40fb-8382-b1eee998c9bb,Bielefeld (Region) Kreisliga A 2,0a5dbdf7-f983-48df-a885-e81467a3e01b,,7
+f899610b-2429-43ee-a368-9977af52bd4a,Thüringen Kreisliga A 1,9fca3ed9-c871-42a0-9f12-c991c0c63433,,7
+f9a722f2-2e05-4417-9bce-b169d7550d03,Hamburg Kreisliga A 3,49e171e6-b242-430c-9d08-4e5d46eaddd6,,7
+fab06e5c-fae0-419d-8917-ad60800f0762,Hessen Kreisliga A 2,b0131ced-fa83-4fb1-afca-f220318b4b8b,,7
+fad52dd1-f1d7-4275-888a-981248fa1562,Liga 2,,,2
+fe6378b1-7930-455b-84a8-02e055f2b781,Rheinland-Pfalz Kreisliga A 4,d54d2a67-6d94-41a2-91ae-a0864ca9bf68,,7
+feb2158f-be8c-4453-9b3b-57e4c553456b,Herford Kreisliga A 1,d1694238-6b5a-4a28-814c-2d65000b6a04,,7
+fed3fba9-82a1-4749-80cd-0242208631f7,Bremen Kreisliga A 4,ec05ac2e-0df2-4220-9430-19650177dad5,,7
