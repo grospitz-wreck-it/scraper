@@ -34,16 +34,14 @@ def scrape():
     data = []
 
     with sync_playwright() as p:
-        browser = p.firefox.launch
+       browser = p.chromium.launch(
     headless=True,
-    executable_path="/home/codespace/.cache/ms-playwright/chromium-1208/chrome-linux/chrome",
     args=[
         "--no-sandbox",
         "--disable-dev-shm-usage",
         "--disable-gpu",
-        "--disable-software-rasterizer",
-        "--disable-setuid-sandbox",
         "--disable-features=UseOzonePlatform",
+        "--disable-software-rasterizer"
     ]
 )
 
