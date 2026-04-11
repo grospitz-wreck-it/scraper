@@ -1,98 +1,66 @@
-import asyncio
-from playwright.async_api import async_playwright
+import requests
 import pandas as pd
+import time
 
-BASE_URL = "https://www.fupa.net"
+BASE_URL = "https://www.fupa.net/api/competition"
 
-START_LEAGUES = [
-    "/liga/bundesliga",
-    "/liga/2-bundesliga",
-    "/liga/3-liga",
-    "/liga/regionalliga-bayern",
-    "/liga/regionalliga-west"
-]
+HEADERS = {
+    "User-Agent": "Mozilla/5.0"
+}
 
 
-async def scrape_league(page, league_url):
-    full_url = BASE_URL + league_url
-    print(f"📄 {full_url}")
+def fetch_teams(comp_id):
+    url = f"{BASE_URL}/{comp_id}/teams"
 
     try:
-        await page.goto(full_url, timeout=60000)
+        r = requests.get(url, headers=HEADERS, timeout=10)
+        r.raise_for_status()
+        data = r.json()
 
-        # WICHTIG: warten bis alles geladen ist
-        await page.wait_for_load_state("networkidle")
-        await page.wait_for_timeout(5000)
+        teams = []
 
-        # 👉 versuche auf "Tabelle" zu klicken (wenn vorhanden)
-        try:
-            await page.click("text=Tabelle", timeout=3000)
-            await page.wait_for_timeout(3000)
-        except:
-            pass
+        for t in data.get("teams", []):
+            teams.append({
+                "team_id": t.get("id"),
+                "team_name": t.get("name"),
+                "club": t.get("clubName"),
+                "competition_id": comp_id
+            })
+
+        return teams
 
     except Exception as e:
-        print("Fehler beim Laden:", e)
+        print(f"Fehler bei {comp_id}: {e}")
         return []
 
-    teams = await page.evaluate("""
-    () => {
-        let data = [];
 
-        // mehrere mögliche Tabellen-Selektoren
-        const tables = document.querySelectorAll("table");
+def main():
+    comps = pd.read_csv("competitions_rows (1).csv")
 
-        tables.forEach(table => {
-            const rows = table.querySelectorAll("tbody tr");
+    all_teams = []
 
-            rows.forEach(row => {
-                const link = row.querySelector("a");
+    for i, row in comps.iterrows():
+        comp_id = row["id"]
+        name = row.get("name")
 
-                if (link && link.innerText.trim().length > 0) {
-                    data.push({
-                        team_name: link.innerText.trim(),
-                        team_url: link.href
-                    });
-                }
-            });
-        });
+        print(f"[{i}] Lade {name}")
 
-        return data;
-    }
-    """)
+        teams = fetch_teams(comp_id)
 
-    print(f"   → {len(teams)} Teams gefunden")
-    return teams
+        for t in teams:
+            t["league_name"] = name
 
+        all_teams.extend(teams)
 
-async def main():
-    results = []
+        time.sleep(0.3)
 
-    async with async_playwright() as p:
-        browser = await p.chromium.launch(
-            headless=True,
-            args=["--no-sandbox", "--disable-dev-shm-usage"]
-        )
-
-        page = await browser.new_page()
-
-        for league in START_LEAGUES:
-            teams = await scrape_league(page, league)
-
-            for t in teams:
-                t["league"] = league
-
-            results.extend(teams)
-
-        await browser.close()
-
-    df = pd.DataFrame(results)
+    df = pd.DataFrame(all_teams)
     df.drop_duplicates(inplace=True)
 
-    df.to_csv("fupa_export.csv", index=False)
+    df.to_csv("fupa_full_export.csv", index=False)
 
     print(f"\n✅ {len(df)} Teams gespeichert")
 
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    main()
