@@ -22,7 +22,10 @@ async def get_all_league_links(page):
 
         try:
             await page.goto(url, timeout=60000)
-            await page.wait_for_timeout(3000)
+
+            # WICHTIG: warten bis Content wirklich da ist
+            await page.wait_for_load_state("networkidle")
+            await page.wait_for_timeout(5000)
 
             links = await page.evaluate("""
             () => {
@@ -30,14 +33,17 @@ async def get_all_league_links(page):
                 let result = [];
 
                 anchors.forEach(a => {
-                    if (a.href.includes("/liga/")) {
-                        result.push(a.getAttribute("href"));
+                    const href = a.getAttribute("href");
+                    if (href && href.includes("/liga/")) {
+                        result.push(href);
                     }
                 });
 
                 return result;
             }
             """)
+
+            print(f"   → {len(links)} Links gefunden")
 
             for l in links:
                 all_leagues.add(l)
