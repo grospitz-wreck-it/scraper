@@ -39,13 +39,13 @@ def scrape():
 
     with sync_playwright() as p:
 browser = p.chromium.launch(
-    headless="new",   # 👈 DAS ist der entscheidende Unterschied
+    headless="new",
     args=[
         "--no-sandbox",
         "--disable-dev-shm-usage",
+        "--disable-gpu",
     ]
 )
-
         for league in LEAGUES:
             print(f"\n👉 Lade Liga: {league}")
 
