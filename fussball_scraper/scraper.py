@@ -34,7 +34,7 @@ def scrape():
     data = []
 
     with sync_playwright() as p:
-        browser = p.chromium.launch(
+        browser = p.firefox.launch
     headless=True,
     executable_path="/home/codespace/.cache/ms-playwright/chromium-1208/chrome-linux/chrome",
     args=[
