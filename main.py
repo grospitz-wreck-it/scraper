@@ -91,9 +91,10 @@ async def main():
     all_results = []
 
     async with async_playwright() as p:
-        browser = await p.chromium.launch(headless=True)
-        page = await browser.new_page()
-
+       browser = await p.chromium.launch(
+    headless=True,
+    args=["--no-sandbox", "--disable-dev-shm-usage"]
+)
         # 1. alle Ligen holen
         leagues = await get_all_league_links(page)
 
