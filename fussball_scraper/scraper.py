@@ -3,10 +3,11 @@ import pandas as pd
 import re
 from unidecode import unidecode
 
+# 👉 HIER deine Ligen eintragen
 LEAGUES = [
-    "https://www.fussball.de/wettbewerb/bundesliga",
-    # 👉 weitere Ligen hier einfügen
+    "https://www.fussball.de/spieltagsuebersicht/bundesliga-deutschland-bundesliga-herren-saison2526-deutschland/-/staffel/02TKC4CR0O00001BVS5489BUVUD1610F-G#!/"
 ]
+
 
 def normalize(name):
     name = name.lower()
@@ -19,20 +20,16 @@ def normalize(name):
 def extract_teams(page):
     teams = []
 
-    # 👉 wichtigste Strategie: echte Team-Links finden
-    anchors = page.locator("a:has-text('')")
-    count = anchors.count()
+    # 👉 NUR echte Vereinslinks
+    elements = page.locator("a[href*='verein']")
+
+    count = elements.count()
 
     for i in range(count):
-        text = anchors.nth(i).inner_text().strip()
+        text = elements.nth(i).inner_text().strip()
 
-        if not text:
-            continue
-
-        # 👉 typische Fußballnamen erkennen
-        if any(prefix in text.lower() for prefix in ["sv", "fc", "tsv", "vfl", "sc"]):
-            if 3 < len(text) < 50:
-                teams.append(text)
+        if text and 3 < len(text) < 60:
+            teams.append(text)
 
     return list(set(teams))
 
@@ -41,30 +38,38 @@ def scrape():
     data = []
 
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=False)
+        browser = p.chromium.launch(headless=False, slow_mo=300)
         page = browser.new_page()
 
         for league in LEAGUES:
-            print(f"👉 {league}")
-            page.goto(league, timeout=60000)
-            page.wait_for_timeout(4000)
+            print(f"\n👉 Lade Liga: {league}")
 
-            # 👉 Teams Tab klicken (entscheidend!)
-            try:
-                page.click("text=Teams", timeout=5000)
-                page.wait_for_timeout(4000)
-            except:
-                print("⚠️ kein Teams-Tab")
+            page.goto(league, timeout=60000)
+            page.wait_for_timeout(5000)
+
+            # 👉 warten bis Tabs da sind
+            page.wait_for_selector("text=Tabelle")
+
+            # 👉 auf Mannschaften klicken (robust)
+            if page.locator("text=Mannschaften").count() > 0:
+                page.click("text=Mannschaften")
+            elif page.locator("text=Teams").count() > 0:
+                page.click("text=Teams")
+            else:
+                print("❌ Kein Teams-Tab gefunden")
+                continue
+
+            page.wait_for_timeout(5000)
 
             teams = extract_teams(page)
 
-            print(f"   → {len(teams)} Teams gefunden")
+            print(f"✅ {len(teams)} Teams gefunden")
 
-            for t in teams:
+            for team in teams:
                 data.append({
                     "league": league,
-                    "team": t,
-                    "team_norm": normalize(t)
+                    "team": team,
+                    "team_normalized": normalize(team)
                 })
 
         browser.close()
@@ -72,7 +77,7 @@ def scrape():
     return pd.DataFrame(data)
 
 
-df = scrape()
-df.to_csv("teams_once.csv", index=False)
-
-print("✅ Fertig:", len(df), "Teams")
+if __name__ == "__main__":
+    df = scrape()
+    df.to_csv("teams_once.csv", index=False)
+    print("\n🎉 Fertig! Datei: teams_once.csv")
