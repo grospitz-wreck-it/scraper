@@ -5,27 +5,48 @@ import pandas as pd
 BASE_URL = "https://www.fupa.net"
 
 async def get_all_league_links(page):
-    print("🔍 Lade Ligenübersicht...")
-    await page.goto(f"{BASE_URL}/ligen", timeout=60000)
-    await page.wait_for_selector("a", timeout=10000)
+    regions = [
+        "bayern", "baden", "wuerttemberg", "hessen",
+        "niedersachsen", "westfalen", "mittelrhein",
+        "niederrhein", "rheinland", "saarland",
+        "berlin", "brandenburg", "mecklenburg-vorpommern",
+        "sachsen", "sachsen-anhalt", "thueringen",
+        "hamburg", "bremen", "schleswig-holstein"
+    ]
 
-    links = await page.evaluate("""
-    () => {
-        const anchors = document.querySelectorAll("a");
-        let leagues = new Set();
+    all_leagues = set()
 
-        anchors.forEach(a => {
-            if (a.href.includes("/liga/")) {
-                leagues.add(a.getAttribute("href"));
+    for region in regions:
+        url = f"https://www.fupa.net/region/{region}/ligen"
+        print(f"🌍 Lade Region: {region}")
+
+        try:
+            await page.goto(url, timeout=60000)
+            await page.wait_for_timeout(3000)
+
+            links = await page.evaluate("""
+            () => {
+                const anchors = document.querySelectorAll("a");
+                let result = [];
+
+                anchors.forEach(a => {
+                    if (a.href.includes("/liga/")) {
+                        result.push(a.getAttribute("href"));
+                    }
+                });
+
+                return result;
             }
-        });
+            """)
 
-        return Array.from(leagues);
-    }
-    """)
+            for l in links:
+                all_leagues.add(l)
 
-    print(f"➡️ {len(links)} Ligen gefunden")
-    return links
+        except Exception as e:
+            print(f"Fehler bei Region {region}: {e}")
+
+    print(f"➡️ {len(all_leagues)} Ligen gefunden")
+    return list(all_leagues)
 
 
 async def scrape_teams_from_league(page, league_url):
