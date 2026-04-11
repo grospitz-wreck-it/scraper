@@ -1,40 +1,58 @@
-tmpimport asyncio
+import asyncio
 from playwright.async_api import async_playwright
 import pandas as pd
 
 BASE_URL = "https://www.fupa.net"
 
-# Beispiel-Ligen (kannst du erweitern)
-LEAGUES = [
-    "/liga/bundesliga",
-    "/liga/2-bundesliga",
-    "/liga/3-liga",
-    "/liga/regionalliga-bayern",
-    "/liga/regionalliga-west",
-    "/liga/kreisliga-a"
-]
+async def get_all_league_links(page):
+    print("🔍 Lade Ligenübersicht...")
+    await page.goto(f"{BASE_URL}/ligen", timeout=60000)
+    await page.wait_for_selector("a", timeout=10000)
 
-async def scrape_league(page, league_url):
+    links = await page.evaluate("""
+    () => {
+        const anchors = document.querySelectorAll("a");
+        let leagues = new Set();
+
+        anchors.forEach(a => {
+            if (a.href.includes("/liga/")) {
+                leagues.add(a.getAttribute("href"));
+            }
+        });
+
+        return Array.from(leagues);
+    }
+    """)
+
+    print(f"➡️ {len(links)} Ligen gefunden")
+    return links
+
+
+async def scrape_teams_from_league(page, league_url):
     full_url = BASE_URL + league_url
-    print(f"Lade {full_url}")
-    
-    await page.goto(full_url, timeout=60000)
-    await page.wait_for_selector("table", timeout=10000)
+    print(f"📄 {full_url}")
+
+    try:
+        await page.goto(full_url, timeout=60000)
+        await page.wait_for_selector("table", timeout=8000)
+    except:
+        return []
 
     teams = await page.evaluate("""
     () => {
         const rows = document.querySelectorAll("table tbody tr");
         let data = [];
-        
+
         rows.forEach(row => {
-            const team = row.querySelector("a");
-            if(team){
+            const link = row.querySelector("a");
+            if (link) {
                 data.push({
-                    name: team.innerText.trim(),
-                    url: team.href
+                    team_name: link.innerText.trim(),
+                    team_url: link.href
                 });
             }
         });
+
         return data;
     }
     """)
@@ -43,31 +61,44 @@ async def scrape_league(page, league_url):
 
 
 async def main():
-    results = []
+    all_results = []
 
     async with async_playwright() as p:
         browser = await p.chromium.launch(headless=True)
         page = await browser.new_page()
 
-        for league in LEAGUES:
-            try:
-                teams = await scrape_league(page, league)
-                
-                for t in teams:
-                    t["league"] = league
-                
-                results.extend(teams)
+        # 1. alle Ligen holen
+        leagues = await get_all_league_links(page)
 
-            except Exception as e:
-                print(f"Fehler bei {league}: {e}")
+        # optional: filtern (z.B. nur Deutschland)
+        leagues = [l for l in leagues if l.startswith("/liga/")]
+
+        print(f"🚀 Starte Scraping von {len(leagues)} Ligen...\n")
+
+        # 2. jede Liga scrapen
+        for i, league in enumerate(leagues):
+            print(f"[{i+1}/{len(leagues)}]")
+
+            teams = await scrape_teams_from_league(page, league)
+
+            for t in teams:
+                t["league"] = league
+
+            all_results.extend(teams)
+
+            await asyncio.sleep(0.5)  # freundlich bleiben :)
 
         await browser.close()
 
-    df = pd.DataFrame(results)
-    df.drop_duplicates(inplace=True)
-    df.to_csv("fupa_export.csv", index=False)
+    # 3. DataFrame + Export
+    df = pd.DataFrame(all_results)
 
-    print("✅ Export fertig: fupa_export.csv")
+    df.drop_duplicates(inplace=True)
+
+    df.to_csv("fupa_full_export.csv", index=False)
+
+    print("\n✅ Fertig!")
+    print(f"📦 {len(df)} Teams gespeichert in fupa_full_export.csv")
 
 
 if __name__ == "__main__":
