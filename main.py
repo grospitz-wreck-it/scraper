@@ -3,10 +3,15 @@ import requests
 import pandas as pd
 import re
 from unidecode import unidecode
-import time
 
 BASE_URL = "https://www.transfermarkt.de"
-HEADERS = {"User-Agent": "Mozilla/5.0"}
+
+HEADERS = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
+    "Accept-Language": "de-DE,de;q=0.9,en;q=0.8",
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+    "Connection": "keep-alive",
+}
 
 
 def normalize(name):
@@ -18,77 +23,64 @@ def normalize(name):
 
 
 def scrape_league(code, league_name):
-    url = f"https://www.transfermarkt.de/{league_name}/startseite/wettbewerb/{code}"
+    url = f"{BASE_URL}/{league_name}/startseite/wettbewerb/{code}"
 
     print(f"👉 {league_name} ({code})")
 
-    try:
-        res = requests.get(url, headers={"User-Agent": "Mozilla/5.0"})
-        soup = BeautifulSoup(res.text, "html.parser")
+    session = requests.Session()
+    session.headers.update(HEADERS)
 
-        teams = []
+    # 👉 WICHTIG: Erst Startseite laden (setzt Cookies)
+    session.get(BASE_URL)
 
-        # 👉 WICHTIG: richtige Tabelle
-        table = soup.select_one("table.items")
+    res = session.get(url)
 
-        if not table:
-            print("   ❌ keine Tabelle gefunden")
-            return []
+    soup = BeautifulSoup(res.text, "html.parser")
 
-        for row in table.select("tbody tr"):
-            a = row.select_one("td.hauptlink a")
+    teams = []
 
-            if not a:
-                continue
+    # 👉 Debug (einmal laufen lassen!)
+    if "verein" not in res.text:
+        print("   ⚠️ Seite ohne Vereinsdaten geladen")
 
-            name = a.get_text(strip=True)
+    table = soup.select_one("table.items")
 
-            teams.append({
-                "league": league_name,
-                "team": name,
-                "team_normalized": normalize(name)
-            })
-
-        # dedupe
-        teams = list({t["team"]: t for t in teams}.values())
-
-        print(f"   ✅ {len(teams)} Teams")
-
-        return teams
-
-    except Exception as e:
-        print("   ❌ Fehler:", e)
+    if not table:
+        print("   ❌ Tabelle nicht gefunden")
         return []
 
+    for row in table.select("tbody tr"):
+        a = row.select_one("td.hauptlink a")
 
-# 👉 Liste erweitern = mehr Coverage
+        if not a:
+            continue
+
+        name = a.get_text(strip=True)
+
+        teams.append({
+            "league": league_name,
+            "team": name,
+            "team_normalized": normalize(name)
+        })
+
+    teams = list({t["team"]: t for t in teams}.values())
+
+    print(f"   ✅ {len(teams)} Teams")
+
+    return teams
+
+
 LEAGUES = [
-    ("L1", "bundesliga"),
-    ("L2", "2-bundesliga"),
-    ("L3", "3-liga"),
-    ("RLN", "regionalliga-nord"),
-    ("RLW", "regionalliga-west"),
-    ("RLSW", "regionalliga-suedwest"),
-    ("RLB", "regionalliga-bayern"),
-    ("RLNO", "regionalliga-nordost"),
-    ("OLW3", "oberliga-westfalen"),
     ("VLW1", "westfalenliga-1"),
-    ("VLW2", "westfalenliga-2"),
 ]
-
 
 all_teams = []
 
 for code, name in LEAGUES:
     teams = scrape_league(code, name)
     all_teams.extend(teams)
-    time.sleep(1)  # 👉 wichtig (kein rate limit)
 
 df = pd.DataFrame(all_teams)
-
-# globale dedupe
-df = df.drop_duplicates(subset=["team"])
-
-df.to_csv("germany_teams_full.csv", index=False)
+df.to_csv("teams_transfermarkt.csv", index=False)
 
 print("\n🎉 FERTIG:", len(df), "Teams gesamt")
