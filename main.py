@@ -18,25 +18,36 @@ def normalize(name):
 
 
 def scrape_league(code, league_name):
-    url = f"{BASE_URL}/{league_name}/startseite/wettbewerb/{code}"
+    url = f"https://www.transfermarkt.de/{league_name}/startseite/wettbewerb/{code}"
 
     print(f"👉 {league_name} ({code})")
 
     try:
-        res = requests.get(url, headers=HEADERS)
+        res = requests.get(url, headers={"User-Agent": "Mozilla/5.0"})
         soup = BeautifulSoup(res.text, "html.parser")
 
         teams = []
 
-        for a in soup.select("a[href*='/verein/']"):
+        # 👉 WICHTIG: richtige Tabelle
+        table = soup.select_one("table.items")
+
+        if not table:
+            print("   ❌ keine Tabelle gefunden")
+            return []
+
+        for row in table.select("tbody tr"):
+            a = row.select_one("td.hauptlink a")
+
+            if not a:
+                continue
+
             name = a.get_text(strip=True)
 
-            if name and 3 < len(name) < 60:
-                teams.append({
-                    "league": league_name,
-                    "team": name,
-                    "team_normalized": normalize(name)
-                })
+            teams.append({
+                "league": league_name,
+                "team": name,
+                "team_normalized": normalize(name)
+            })
 
         # dedupe
         teams = list({t["team"]: t for t in teams}.values())
