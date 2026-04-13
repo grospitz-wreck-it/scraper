@@ -3,8 +3,10 @@ import requests
 import pandas as pd
 import re
 from unidecode import unidecode
+import time
 
-URL = "https://www.transfermarkt.de/westfalenliga-1/startseite/wettbewerb/VLW1"
+BASE_URL = "https://www.transfermarkt.de"
+HEADERS = {"User-Agent": "Mozilla/5.0"}
 
 
 def normalize(name):
@@ -15,30 +17,67 @@ def normalize(name):
     return name.strip()
 
 
-headers = {
-    "User-Agent": "Mozilla/5.0"
-}
+def scrape_league(code, league_name):
+    url = f"{BASE_URL}/{league_name}/startseite/wettbewerb/{code}"
 
-response = requests.get(URL, headers=headers)
-soup = BeautifulSoup(response.text, "html.parser")
+    print(f"👉 {league_name} ({code})")
 
-teams = []
+    try:
+        res = requests.get(url, headers=HEADERS)
+        soup = BeautifulSoup(res.text, "html.parser")
 
-# 👉 ALLE Vereinslinks extrahieren
-for a in soup.select("a[href*='/verein/']"):
-    name = a.get_text(strip=True)
+        teams = []
 
-    if name and 3 < len(name) < 60:
-        teams.append({
-            "league": "westfalenliga_1",
-            "team": name,
-            "team_normalized": normalize(name)
-        })
+        for a in soup.select("a[href*='/verein/']"):
+            name = a.get_text(strip=True)
 
-# 👉 dedupe
-teams = list({t["team"]: t for t in teams}.values())
+            if name and 3 < len(name) < 60:
+                teams.append({
+                    "league": league_name,
+                    "team": name,
+                    "team_normalized": normalize(name)
+                })
 
-df = pd.DataFrame(teams)
-df.to_csv("teams_transfermarkt.csv", index=False)
+        # dedupe
+        teams = list({t["team"]: t for t in teams}.values())
 
-print("✅ Fertig:", len(df), "Teams")
+        print(f"   ✅ {len(teams)} Teams")
+
+        return teams
+
+    except Exception as e:
+        print("   ❌ Fehler:", e)
+        return []
+
+
+# 👉 Liste erweitern = mehr Coverage
+LEAGUES = [
+    ("L1", "bundesliga"),
+    ("L2", "2-bundesliga"),
+    ("L3", "3-liga"),
+    ("RLN", "regionalliga-nord"),
+    ("RLW", "regionalliga-west"),
+    ("RLSW", "regionalliga-suedwest"),
+    ("RLB", "regionalliga-bayern"),
+    ("RLNO", "regionalliga-nordost"),
+    ("OLW3", "oberliga-westfalen"),
+    ("VLW1", "westfalenliga-1"),
+    ("VLW2", "westfalenliga-2"),
+]
+
+
+all_teams = []
+
+for code, name in LEAGUES:
+    teams = scrape_league(code, name)
+    all_teams.extend(teams)
+    time.sleep(1)  # 👉 wichtig (kein rate limit)
+
+df = pd.DataFrame(all_teams)
+
+# globale dedupe
+df = df.drop_duplicates(subset=["team"])
+
+df.to_csv("germany_teams_full.csv", index=False)
+
+print("\n🎉 FERTIG:", len(df), "Teams gesamt")
