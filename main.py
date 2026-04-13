@@ -1,68 +1,44 @@
+from bs4 import BeautifulSoup
 import requests
 import pandas as pd
-import time
-import os
-print("FILES:", os.listdir())
+import re
+from unidecode import unidecode
 
-BASE_URL = "https://www.fupa.net/api/competition"
+URL = "https://www.transfermarkt.de/westfalenliga-1/startseite/wettbewerb/VLW1"
 
-HEADERS = {
+
+def normalize(name):
+    name = name.lower()
+    name = unidecode(name)
+    name = re.sub(r'\b(e\.v\.|gmbh|ag)\b', '', name)
+    name = re.sub(r'[^a-z0-9 ]', '', name)
+    return name.strip()
+
+
+headers = {
     "User-Agent": "Mozilla/5.0"
 }
 
+response = requests.get(URL, headers=headers)
+soup = BeautifulSoup(response.text, "html.parser")
 
-def fetch_teams(comp_id):
-    url = f"{BASE_URL}/{comp_id}/teams"
+teams = []
 
-    try:
-        r = requests.get(url, headers=HEADERS, timeout=10)
-        r.raise_for_status()
-        data = r.json()
+# 👉 ALLE Vereinslinks extrahieren
+for a in soup.select("a[href*='/verein/']"):
+    name = a.get_text(strip=True)
 
-        teams = []
+    if name and 3 < len(name) < 60:
+        teams.append({
+            "league": "westfalenliga_1",
+            "team": name,
+            "team_normalized": normalize(name)
+        })
 
-        for t in data.get("teams", []):
-            teams.append({
-                "team_id": t.get("id"),
-                "team_name": t.get("name"),
-                "club": t.get("clubName"),
-                "competition_id": comp_id
-            })
+# 👉 dedupe
+teams = list({t["team"]: t for t in teams}.values())
 
-        return teams
+df = pd.DataFrame(teams)
+df.to_csv("teams_transfermarkt.csv", index=False)
 
-    except Exception as e:
-        print(f"Fehler bei {comp_id}: {e}")
-        return []
-
-
-def main():
-   comps = pd.read_csv("competitions.csv")
-
-    all_teams = []
-
-    for i, row in comps.iterrows():
-        comp_id = row["id"]
-        name = row.get("name")
-
-        print(f"[{i}] Lade {name}")
-
-        teams = fetch_teams(comp_id)
-
-        for t in teams:
-            t["league_name"] = name
-
-        all_teams.extend(teams)
-
-        time.sleep(0.3)
-
-    df = pd.DataFrame(all_teams)
-    df.drop_duplicates(inplace=True)
-
-    df.to_csv("fupa_full_export.csv", index=False)
-
-    print(f"\n✅ {len(df)} Teams gespeichert")
-
-
-if __name__ == "__main__":
-    main()
+print("✅ Fertig:", len(df), "Teams")
